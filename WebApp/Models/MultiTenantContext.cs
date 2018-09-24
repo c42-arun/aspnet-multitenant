@@ -6,7 +6,7 @@ namespace WebApp.Models
     {
         public MultiTenantContext()
         {
-            this.Database.Connection.ConnectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=WebApp.Models.MultiTenantContext;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            this.Database.Connection.ConnectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=WebApp.Models.MultiTenantContext;Integrated Security=True;Connect Timeout=30";
         }
         public DbSet<Tenant> Tenants { get; set; }
         public DbSet<Speaker> Speakers { get; set; }
