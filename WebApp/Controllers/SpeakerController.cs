@@ -49,7 +49,7 @@ namespace WebApp.Controllers
             }
 
 
-            return View("Index", speakers);
+            return View("Index", "_Layout", speakers);
         }
     }
 }
