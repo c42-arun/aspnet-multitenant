@@ -41,7 +41,7 @@ namespace WebApp
             var cacheName = "all-tenants-cache-name";
             var cacheTimeoutSeconds = 30;
 
-            List<Tenant> tenants = TCache<List<Tenant>>.Get(cacheName, cacheTimeoutSeconds, () =>
+            List<Tenant> tenants = new TCache<List<Tenant>>().Get(cacheName, cacheTimeoutSeconds, () =>
             {
                 List<Tenant> tenants1;
                 using (var context = new MultiTenantContext())
@@ -50,25 +50,6 @@ namespace WebApp
                 }
                 return tenants1;
             });
-
-            //List<Tenant> tenants = (List<Tenant>) HttpContext.Current.Cache.Get(cacheName);
-
-            //if (tenants == null)
-            //{
-            //    lock(Locker)
-            //    {
-            //        if (tenants == null)
-            //        {
-            //            using (var context = new MultiTenantContext())
-            //            {
-            //                tenants = context.Tenants.ToList();
-
-            //                HttpContext.Current.Cache.Insert(cacheName, tenants, null, 
-            //                    DateTime.Now.Add(new TimeSpan(0, 0, cacheTimeoutSeconds)), TimeSpan.Zero);
-            //            }
-            //        }
-            //    }
-            //}
 
             tenant = tenants.FirstOrDefault(a => a.DomainName.ToLower().Equals(urlhost))
                         ?? tenants.FirstOrDefault(a => a.Default);                
