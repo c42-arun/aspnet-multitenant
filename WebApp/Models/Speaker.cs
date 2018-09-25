@@ -16,6 +16,16 @@ namespace WebApp.Models
         public bool AllowHtml { get; set; }
         public int PictureId { get; set; }
 
+        public string SpeakerUrl
+        {
+            get
+            {
+                return new 
+                       Utils().GenerateSlug(string.Format("{0}-{1}-{2}", FirstName, LastName, PictureId));
+            }
+        }
+
+
         public virtual List<Session> Sessions { get; set; }
     }
 }

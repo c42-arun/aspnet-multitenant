@@ -38,8 +38,8 @@ namespace WebApp.Controllers
                         Bio = speaker.Bio,
                         Website = speaker.Website,
                         AllowHtml = speaker.AllowHtml,
-                        ImageUrl = speaker.ImageUrl,
-                        PictureId = speaker.PictureId,
+                        ImageUrl = $"/Content/Images/Speakers/Speaker-{speaker.PictureId}-75.jpg",
+
                         Sessions =
                             speaker.Sessions
                                 .Where(a => a.Tenant.Name == Tenant.Name)
