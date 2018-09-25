@@ -18,6 +18,12 @@
                 @speaker.FirstName @speaker.LastName
             </span>
             <br/>
+
+            foreach(var session in speaker.Sessions)
+            {
+                <span>&nbsp;&nbsp;@session.Title&nbsp;</span>
+                <br/>
+            }
         }
     </div>
 </body>
