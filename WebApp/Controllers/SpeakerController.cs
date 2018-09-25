@@ -9,38 +9,44 @@ namespace WebApp.Controllers
 {
     public class SpeakerController : MultiTenantMvcController
     {
+        private MultiTenantContext context = new MultiTenantContext();
+
         public async Task<ActionResult> Index()
         {
             var speakers = new List<Speaker>();
-            
-            using (var context = new MultiTenantContext())
+
+            //var speakersAll = await context.Speakers.ToListAsync();
+
+            Task<List<Speaker>> speakersAll = new TCache<Task<List<Speaker>>>().Get("s-cache", 20, () =>
             {
-                var speakersAll = await context.Speakers.ToListAsync();
+                var speakersAll1 = context.Speakers.ToListAsync();
+                return speakersAll1;
+            });
 
-                foreach (var speaker in speakersAll)
+            foreach (var speaker in await speakersAll)
+            {
+                bool speakerInTenant = speaker.Sessions.Any(a => a.Tenant.Name == Tenant.Name);
+
+                if (speakerInTenant)
                 {
-                    bool speakerInTenant = speaker.Sessions.Any(a => a.Tenant.Name == Tenant.Name);
-
-                    if (speakerInTenant)
+                    speakers.Add(new Speaker
                     {
-                        speakers.Add(new Speaker
-                        {
-                            FirstName = speaker.FirstName,
-                            LastName = speaker.LastName,
-                            Id = speaker.Id,
-                            Bio = speaker.Bio,
-                            Website = speaker.Website,
-                            AllowHtml = speaker.AllowHtml,
-                            ImageUrl = speaker.ImageUrl,
-                            PictureId = speaker.PictureId,
-                            Sessions =
-                                speaker.Sessions
-                                    .Where(a => a.Tenant.Name == Tenant.Name)
-                                    .OrderBy(a => a.Title).ToList()
-                        });
-                    }
+                        FirstName = speaker.FirstName,
+                        LastName = speaker.LastName,
+                        Id = speaker.Id,
+                        Bio = speaker.Bio,
+                        Website = speaker.Website,
+                        AllowHtml = speaker.AllowHtml,
+                        ImageUrl = speaker.ImageUrl,
+                        PictureId = speaker.PictureId,
+                        Sessions =
+                            speaker.Sessions
+                                .Where(a => a.Tenant.Name == Tenant.Name)
+                                .OrderBy(a => a.Title).ToList()
+                    });
                 }
             }
+
 
             return View("Index", speakers);
         }
