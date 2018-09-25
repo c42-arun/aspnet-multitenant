@@ -13,7 +13,7 @@ namespace WebApp.Models
         public string DescriptionShort { get; set; }
         public string DescriptionLong { get; set; }
 
-        public Tenant Tenant { get; set; }
-        public List<Speaker> Speakers { get; set; }
+        public virtual Tenant Tenant { get; set; }
+        public virtual List<Speaker> Speakers { get; set; }
     }
 }

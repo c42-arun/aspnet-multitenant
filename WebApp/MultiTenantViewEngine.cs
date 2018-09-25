@@ -51,7 +51,7 @@ namespace WebApp
 
             Debug.Assert(controller != null, "PassedController != null");
 
-            return base.CreatePartialView(controllerContext, partialPath.Replace("%1", controller.Tenant.Name);
+            return base.CreatePartialView(controllerContext, partialPath.Replace("%1", controller.Tenant.Name));
         }
 
         protected override bool FileExists(ControllerContext controllerContext, string virtualPath)
