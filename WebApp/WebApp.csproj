@@ -233,6 +233,7 @@
     <Content Include="Views\Tenant\Index.cshtml" />
     <EmbeddedResource Include="TestData\session.json" />
     <EmbeddedResource Include="TestData\speaker.json" />
+    <Content Include="Views\Speaker\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
