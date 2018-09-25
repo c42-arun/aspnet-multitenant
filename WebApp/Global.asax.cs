@@ -20,6 +20,9 @@ namespace WebApp
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
+            ViewEngines.Engines.Clear();
+            ViewEngines.Engines.Add(new MultiTenantViewEngine());
+
             //using (var context = new MultiTenantContext())
             //{
             //    var tenants = new List<Tenant>
