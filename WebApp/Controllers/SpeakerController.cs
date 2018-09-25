@@ -11,6 +11,7 @@ namespace WebApp.Controllers
     {
         private MultiTenantContext context = new MultiTenantContext();
 
+        [MultiTenantControllerAllow("svcc")]
         public async Task<ActionResult> Index()
         {
             var speakers = new List<Speaker>();
