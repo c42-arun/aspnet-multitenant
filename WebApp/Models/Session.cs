@@ -13,6 +13,8 @@ namespace WebApp.Models
         public string DescriptionShort { get; set; }
         public string DescriptionLong { get; set; }
 
+        public string SessionUrl => new Utils().GenerateSlug(Title);
+
         public virtual Tenant Tenant { get; set; }
         public virtual List<Speaker> Speakers { get; set; }
     }
