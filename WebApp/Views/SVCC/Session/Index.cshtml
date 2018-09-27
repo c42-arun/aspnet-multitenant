@@ -53,7 +53,7 @@
                     </div>
                     <div class="description">
                         <h3 style="font-weight: bold; font-size: larger;">@session.Title</h3>
-                        Html.Raw(@session.DescriptionShort)
+                        @Html.Raw(session.DescriptionShort)
                     </div>
                     <div class="morecodestars">
                         <a href="/Session/Detail/@session.SessionUrl" target="_blank">Read more</a>

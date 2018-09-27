@@ -1374,6 +1374,7 @@
     <Content Include="Views\SVCC\Speaker\Detail.cshtml" />
     <Content Include="Views\SVCC\Session\Detail.cshtml" />
     <Content Include="Views\SVCC\Session\Index.cshtml" />
+    <Content Include="Views\SVCC\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
