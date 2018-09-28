@@ -1,10 +1,12 @@
 var gulp = require('gulp');
 var gutil = require('gulp-util');
+var browserSync = require('browser-sync').create();
 
 gulp.task('default', function() {
-    gutil.log('this is our first log entry');
+    browserSync.init({
+        server: {
+            baseDir: "./dist"
+        }
+    });
 });
 
-gulp.task('secondlog', function() {
-    gutil.log('this is our second log entry');
-});
