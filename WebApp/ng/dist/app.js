@@ -36221,6 +36221,8 @@ require('./angular');
 module.exports = angular;
 
 },{"./angular":1}],3:[function(require,module,exports){
+require('./src');
+},{"./src":4}],4:[function(require,module,exports){
 var angular = require('angular');
 
 angular.module('MTApp', []).controller('SVCCController', SVCCController);
