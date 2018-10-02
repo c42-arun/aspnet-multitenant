@@ -1,4 +1,4 @@
-function SVCCController ($scope) {
+function HomeController ($scope) {
     $scope.sessions = [
         {title: 'Javascript', speaker: 'Crockford'},
         {title: 'C', speaker: 'Ritchie'},
@@ -7,6 +7,6 @@ function SVCCController ($scope) {
     ];
 }
 
-SVCCController.$inject = ['$scope'];
+HomeController.$inject = ['$scope'];
 
-module.exports = SVCCController;
+module.exports = HomeController;
