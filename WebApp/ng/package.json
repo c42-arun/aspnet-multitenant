@@ -9,6 +9,7 @@
   "author": "Arunkumar Ramachandriya",
   "license": "ISC",
   "dependencies": {
+    "angular": "^1.7.4",
     "browser-sync": "^2.24.7",
     "browserify": "^16.2.3",
     "gulp": "^3.9.1",
