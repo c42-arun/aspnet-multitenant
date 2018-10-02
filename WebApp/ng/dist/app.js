@@ -36222,11 +36222,13 @@ module.exports = angular;
 
 },{"./angular":1}],3:[function(require,module,exports){
 require('./src');
-},{"./src":4}],4:[function(require,module,exports){
-var angular = require('angular');
-
-angular.module('MTApp', []).controller('SVCCController', SVCCController);
-
+},{"./src":5}],4:[function(require,module,exports){
+module.exports = 
+    require('angular')
+        .module('home', [])
+        .controller('SVCCController', SVCCController)
+        .name;
+        
 function SVCCController ($scope) {
     $scope.sessions = [
         {title: 'Javascript', speaker: 'Crockford'},
@@ -36237,4 +36239,13 @@ function SVCCController ($scope) {
 }
 
 SVCCController.$inject = ['$scope'];
-},{"angular":2}]},{},[3]);
+},{"angular":2}],5:[function(require,module,exports){
+var angular = require('angular');
+
+var name = angular.module('MTApp', [
+    require('./home')
+]).name; 
+
+module.exports = name;
+
+},{"./home":4,"angular":2}]},{},[3]);
