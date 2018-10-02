@@ -5,7 +5,10 @@
     <title>Run from Browser-Sync</title>
 </head>
 <body>
-    <b>{{1 + 41}}</b>
+    <div ng-init="data = {name: 'Silicon Valley Code Camp', year: 2004}">
+    </div>
+
+    <span ng-hide="false">{{data.name}} {{data.year}}</span>
 </body>
 <script src="app.js"></script>
 </html>
