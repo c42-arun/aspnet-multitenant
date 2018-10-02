@@ -36221,6 +36221,18 @@ require('./angular');
 module.exports = angular;
 
 },{"./angular":1}],3:[function(require,module,exports){
-require('angular');
+var angular = require('angular');
 
+angular.module('MTApp', []).controller('SVCCController', SVCCController);
+
+function SVCCController ($scope) {
+    $scope.sessions = [
+        {title: 'Javascript', speaker: 'Crockford'},
+        {title: 'C', speaker: 'Ritchie'},
+        {title: 'Java', speaker: 'Gosling'},
+        {title: 'C#', speaker: 'Hejlsberg'},
+    ];
+}
+
+SVCCController.$inject = ['$scope'];
 },{"angular":2}]},{},[3]);
