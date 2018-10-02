@@ -36222,13 +36222,7 @@ module.exports = angular;
 
 },{"./angular":1}],3:[function(require,module,exports){
 require('./src');
-},{"./src":5}],4:[function(require,module,exports){
-module.exports = 
-    require('angular')
-        .module('home', [])
-        .controller('SVCCController', SVCCController)
-        .name;
-        
+},{"./src":6}],4:[function(require,module,exports){
 function SVCCController ($scope) {
     $scope.sessions = [
         {title: 'Javascript', speaker: 'Crockford'},
@@ -36239,7 +36233,17 @@ function SVCCController ($scope) {
 }
 
 SVCCController.$inject = ['$scope'];
-},{"angular":2}],5:[function(require,module,exports){
+
+module.exports = SVCCController;
+},{}],5:[function(require,module,exports){
+module.exports = 
+    require('angular')
+        .module('home', [])
+        .controller('SVCCController', require('./controller'))
+        .name;
+
+
+},{"./controller":4,"angular":2}],6:[function(require,module,exports){
 var angular = require('angular');
 
 var name = angular.module('MTApp', [
@@ -36248,4 +36252,4 @@ var name = angular.module('MTApp', [
 
 module.exports = name;
 
-},{"./home":4,"angular":2}]},{},[3]);
+},{"./home":5,"angular":2}]},{},[3]);
